@@ -1,0 +1,58 @@
+{{ define "main" }}
+<h1 class="page-title">Photos tagged with #{{ .Title }}</h1>
+
+<div class="tag-description">
+    {{ if eq .Title "animals" }}
+    <p>My collection of animal and wildlife photography from around the world. From domestic animals to wildlife, these images capture the beauty and character of the creatures we share our planet with.</p>
+    {{ else if eq .Title "landscape" }}
+    <p>Landscape photography showcasing the natural beauty of mountains, grasslands, forests, and other scenic environments. These images aim to capture the grandeur and serenity of our natural world.</p>
+    {{ else if eq .Title "mountains" }}
+    <p>Mountain photography from various ranges around the world. These majestic landforms create some of Earth's most dramatic and awe-inspiring landscapes.</p>
+    {{ else if eq .Title "lake" }}
+    <p>Photographs of lakes from around the world, capturing their serene beauty, reflective surfaces, and the surrounding landscapes that frame these bodies of water.</p>
+    {{ else if eq .Title "xinjiang" }}
+    <p>Photos from my travels through Xinjiang, China's westernmost region. Known for its diverse landscapes, from vast grasslands to towering mountains, alpine lakes, and rich cultural heritage.</p>
+    {{ end }}
+</div>
+
+<div class="photo-grid">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="photo-item
+        {{ if in .Params.tags "animals" }} animal-photo{{ end }}
+        {{ if in .Params.tags "mountains" }} mountain-photo{{ end }}
+        {{ if in .Params.tags "lake" }} lake-photo{{ end }}
+        {{ if and (in .Params.tags "landscape") (in .Params.tags "mountains") }} wide-landscape{{ end }}
+        {{ if and (in .Params.tags "mountains") (in .Title "Tianshan") }} snow-mountains{{ end }}
+        {{ if and (in .Params.tags "lake") (in .Title "Azure") }} blue-dominant{{ end }}">
+        {{ if .Params.image }}
+        <img src="{{ .Params.image }}" alt="{{ .Title }}">
+        {{ else if .Params.featured_image }}
+        <img src="{{ .Params.featured_image }}" alt="{{ .Title }}">
+        {{ end }}
+        
+        {{ if .Date.Month }}
+        {{ $season := "" }}
+        {{ if or (eq .Date.Month 3) (eq .Date.Month 4) (eq .Date.Month 5) }}
+        {{ $season = "spring" }}
+        {{ else if or (eq .Date.Month 6) (eq .Date.Month 7) (eq .Date.Month 8) }}
+        {{ $season = "summer" }}
+        {{ else if or (eq .Date.Month 9) (eq .Date.Month 10) (eq .Date.Month 11) }}
+        {{ $season = "autumn" }}
+        {{ else }}
+        {{ $season = "winter" }}
+        {{ end }}
+        <span class="season-tag season-{{ $season }}">{{ $season }}</span>
+        {{ end }}
+        
+        <div class="photo-info">
+            <h3 class="photo-title">{{ .Title }}</h3>
+            {{ if .Params.location }}
+            <div class="photo-location">{{ .Params.location }}</div>
+            {{ else if .Date }}
+            <div class="photo-location">{{ .Date.Format "January 2006" }}</div>
+            {{ end }}
+        </div>
+    </a>
+    {{ end }}
+</div>
+{{ end }} 

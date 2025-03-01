@@ -286,23 +286,30 @@ header {
 /* 照片页面样式 */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
     margin-top: 30px;
 }
 
 .photo-item {
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
-    aspect-ratio: 1;
+    border-radius: 8px;
+    aspect-ratio: 3/2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .photo-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .photo-item:hover img {
@@ -314,8 +321,8 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px;
     color: white;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -380,4 +387,108 @@ header {
 
 .back-to-photos:hover {
     text-decoration: underline;
+}
+
+/* 优化动物照片显示 */
+.photo-item.animal-photo img {
+    object-position: center 40%; /* 稍微向上调整焦点，更好地展示动物 */
+}
+
+.photo-detail .featured-image.animal-photo {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 为照片添加季节标签样式 */
+.season-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+.season-spring {
+    background: rgba(76, 175, 80, 0.7);
+}
+
+.season-summer {
+    background: rgba(255, 152, 0, 0.7);
+}
+
+.season-autumn {
+    background: rgba(156, 39, 6, 0.7);
+}
+
+.season-winter {
+    background: rgba(3, 169, 244, 0.7);
+}
+
+/* 优化山脉景观照片显示 */
+.photo-item.mountain-photo img {
+    object-position: center 40%; /* 稍微向上调整焦点，更好地展示山脉 */
+}
+
+.photo-detail .featured-image.mountain-photo {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 为宽幅景观照片添加特殊样式 */
+.photo-item.wide-landscape {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .photo-item.wide-landscape {
+        grid-column: span 1;
+    }
+}
+
+/* 为雪山照片添加特殊效果 */
+.photo-item.snow-mountains img {
+    filter: brightness(1.05);
+    transition: filter 0.5s ease;
+}
+
+.photo-item.snow-mountains:hover img {
+    filter: brightness(1.1) saturate(1.05);
+}
+
+/* 优化湖泊景观照片显示 */
+.photo-item.lake-photo img {
+    object-position: center; /* 居中显示，确保水面是照片的焦点 */
+}
+
+.photo-detail .featured-image.lake-photo {
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 为蓝色系照片添加特殊效果 */
+.photo-item.blue-dominant img {
+    filter: saturate(1.05);
+    transition: filter 0.5s ease;
+}
+
+.photo-item.blue-dominant:hover img {
+    filter: saturate(1.15);
+}
+
+/* 为湖泊照片添加水波纹悬停效果 */
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.1), 0 0 0 10px rgba(0, 120, 212, 0.1), 0 0 0 20px rgba(0, 120, 212, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(0, 120, 212, 0), 0 0 0 20px rgba(0, 120, 212, 0), 0 0 0 40px rgba(0, 120, 212, 0);
+    }
+}
+
+.photo-item.lake-photo:hover {
+    animation: ripple 1.5s infinite;
 } 

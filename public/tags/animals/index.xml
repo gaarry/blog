@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animals on Gary Yao</title>
+    <link>http://localhost:1313/tags/animals/</link>
+    <description>Recent content in Animals on Gary Yao</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/animals/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mother and Lamb</title>
+      <link>http://localhost:1313/photos/nalati-grassland/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/nalati-grassland/</guid>
+      <description>&lt;p&gt;A tender moment between a mother sheep and her lamb on the vast Nalati Grassland in Ili, Xinjiang. The golden evening light bathes the scene in warmth, highlighting the contrast between the white adult sheep and the brown lamb against the lush green meadow.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Spring in Nalati: Life on the Ancient Grasslands</title>
+      <link>http://localhost:1313/posts/nalati-grassland/</link>
+      <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/nalati-grassland/</guid>
+      <description>&lt;p&gt;There&amp;rsquo;s something profoundly moving about witnessing the cycle of life on one of Asia&amp;rsquo;s most ancient grasslands. During my recent trip to Xinjiang&amp;rsquo;s Ili region, I spent several days exploring the magnificent Nalati Grassland, known locally as the &amp;ldquo;sky grassland&amp;rdquo; for its high elevation and proximity to the clouds.&lt;/p&gt;&#xA;&lt;p&gt;April marks the beginning of spring in this region, when the grasslands awaken from their winter dormancy. The timing of my visit couldn&amp;rsquo;t have been more perfect - lambing season was in full swing, offering countless opportunities to observe the tender interactions between mother sheep and their newborns.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
