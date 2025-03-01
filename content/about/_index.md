@@ -1,7 +1,5 @@
 ---
 title: "About"
-menu: main
-weight: 3
 ---
 
 Hi, I'm Gary Yao!

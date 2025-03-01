@@ -1,0 +1,13 @@
+{
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.111.3"
+    }
+  },
+  "buildCommand": "hugo --minify",
+  "outputDirectory": "public",
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+  ]
+} 

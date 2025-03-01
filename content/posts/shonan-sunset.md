@@ -2,7 +2,7 @@
 title: "Shonan Sunset"
 date: 2022-10-26
 tags: ["photography", "japan"]
-featured_image: "https://brianli.com/2022/10/shonan-sunset/featured.jpg"
+featured_image: "../images/photos/tokyo-night/featured.jpg"
 image_caption: "Mt. Fuji at sunset, viewed from Shonan"
 ---
 

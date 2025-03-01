@@ -1,7 +1,17 @@
 <nav class="nav-menu">
     <ul>
+        {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        <li><a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a></li>
+        {{ end }}
+        
+        <!-- 添加备用菜单项，以防.Site.Menus.main为空 -->
+        {{ if not .Site.Menus.main }}
+        <li><a href="/">Home</a></li>
+        <li><a href="/photos/">Photos</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/archive/">Archive</a></li>
         {{ end }}
     </ul>
 </nav> 
