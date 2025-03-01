@@ -17,5 +17,10 @@
     {{ with resources.Get "js/menu.js" }}
     <script src="{{ .RelPermalink }}"></script>
     {{ end }}
+
+    {{ define "footer_js" }}
+    <script src="{{ "js/main.js" | relURL }}"></script>
+    <script src="{{ "js/toggle.js" | relURL }}"></script>
+    {{ end }}
 </body>
 </html> 

@@ -1,0 +1,18 @@
+{{ $type := .Get "type" | default "details" }}
+{{ $showText := .Get "showText" | default "Show more" }}
+{{ $hideText := .Get "hideText" | default "Hide" }}
+{{ $initialState := .Get "initialState" | default "closed" }}
+{{ $title := .Get "title" | default "Additional details" }}
+
+<div class="toggle-container {{ $type }} {{ $initialState }}">
+    <button class="toggle-button" data-show-text="{{ $showText }}" data-hide-text="{{ $hideText }}">
+        {{ if eq $initialState "closed" }}
+        <span class="toggle-icon">+</span> {{ $showText }}
+        {{ else }}
+        <span class="toggle-icon">−</span> {{ $hideText }}
+        {{ end }}
+    </button>
+    <div class="toggle-content">
+        {{ .Inner | markdownify }}
+    </div>
+</div> 

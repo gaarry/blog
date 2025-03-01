@@ -1,0 +1,163 @@
+/* 管理员面板样式 */
+.admin-panel {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: rgba(60, 60, 60, 0.6);
+    border: none;
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(80, 80, 80, 0.8);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: #000;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-table th {
+    background: rgba(40, 40, 40, 0.5);
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.content-item:hover {
+    background: rgba(60, 60, 60, 0.3);
+}
+
+.content-item.draft {
+    opacity: 0.7;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.status-badge.published {
+    background: rgba(76, 175, 80, 0.3);
+    color: #4CAF50;
+}
+
+.status-badge.draft {
+    background: rgba(255, 152, 0, 0.3);
+    color: #FF9800;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.action-btn.view {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+}
+
+.action-btn.toggle-visibility {
+    background: rgba(156, 39, 176, 0.2);
+    color: #9C27B0;
+}
+
+.action-btn.edit {
+    background: rgba(255, 193, 7, 0.2);
+    color: #FFC107;
+}
+
+.action-btn:hover {
+    filter: brightness(1.2);
+}
+
+/* 密码保护样式 */
+.password-protection {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.password-protection h2 {
+    margin-bottom: 20px;
+}
+
+.password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.password-input {
+    padding: 12px 15px;
+    background: rgba(60, 60, 60, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.password-submit {
+    padding: 12px 15px;
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.password-submit:hover {
+    filter: brightness(1.1);
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 10px;
+} 

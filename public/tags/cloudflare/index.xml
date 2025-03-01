@@ -6,14 +6,6 @@
     <description>Recent content in Cloudflare on Gary Yao</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Feb 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Hosting Static Sites on Fly.io</title>
-      <link>http://localhost:1313/posts/hosting-static-sites/</link>
-      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/hosting-static-sites/</guid>
-      <description>&lt;p&gt;I recently joined the team at &lt;a href=&#34;https://fly.io&#34;&gt;Fly.io&lt;/a&gt;, and have slowly been moving my various sites and hobby projects over. In case you haven&amp;rsquo;t heard of Fly.io, we help developers host apps (all sorts of apps, not only JavaScript-based ones) close to users – no devops skills required. I use Fly.io to host a few Python apps like &lt;a href=&#34;#&#34;&gt;this one&lt;/a&gt; and &lt;a href=&#34;#&#34;&gt;this one&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;While Fly.io is primarily designed for hosting applications, it&amp;rsquo;s also a great place to host static sites. In this post, I&amp;rsquo;ll show you how to deploy a static site to Fly.io in just a few minutes.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>管理员登录 - Gary Yao</title>
+<meta name="description" content="Personal blog of Gary Yao">
+
+
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+  <link rel="stylesheet" href="/css/responsive.css">
+ 
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <header>
+    <a href="http://localhost:1313/" class="site-title">gary yao</a>
+    <button class="menu-button">≡</button>
+    
+    <nav class="nav-menu">
+    <ul>
+        
+        
+        <li><a href="/photos/" class="">Photos</a></li>
+        
+        <li><a href="/contact/" class="">Contact</a></li>
+        
+        <li><a href="/archive/" class="">Archive</a></li>
+        
+        
+        
+        
+    </ul>
+</nav> 
+</header> 
+        
+        <main>
+            
+<div class="password-protection">
+    <h2>管理员登录</h2>
+    <form class="password-form" id="admin-login">
+        <input type="password" class="password-input" id="admin-password" placeholder="请输入管理员密码">
+        <button type="submit" class="password-submit">登录</button>
+        <div class="error-message" id="error-message" style="display: none;">密码错误</div>
+    </form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('admin-login');
+    const errorMessage = document.getElementById('error-message');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const password = document.getElementById('admin-password').value;
+        
+        
+        if (password === 'your-secure-password') {
+            
+            sessionStorage.setItem('adminAuthenticated', 'true');
+            window.location.href = '/admin/dashboard/';
+        } else {
+            
+            errorMessage.style.display = 'block';
+        }
+    });
+});
+</script>
+
+        </main>
+    </div>
+    
+    
+    <script src="/js/menu.js"></script>
+    
+
+    
+</body>
+</html> 

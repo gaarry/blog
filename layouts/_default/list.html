@@ -5,7 +5,7 @@
 
 {{ if eq .Section "posts" }}
 <div class="archive-list">
-    {{ range .Pages }}
+    {{ range where .Pages "Draft" "!=" true }}
     <div class="archive-item">
         <div class="archive-date">{{ .Date.Format "January 2, 2006" }}</div>
         <h3 class="archive-title">

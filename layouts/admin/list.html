@@ -1,0 +1,53 @@
+{{ define "main" }}
+<h1 class="page-title">管理员控制面板</h1>
+
+<div class="admin-panel">
+    <div class="admin-header">
+        <h2>内容管理</h2>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="published">已发布</button>
+            <button class="filter-btn" data-filter="draft">草稿</button>
+        </div>
+    </div>
+
+    <div class="content-list">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>标题</th>
+                    <th>日期</th>
+                    <th>类型</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .Site.RegularPages }}
+                <tr class="content-item {{ if .Draft }}draft{{ else }}published{{ end }}">
+                    <td class="title">{{ .Title }}</td>
+                    <td class="date">{{ .Date.Format "2006-01-02" }}</td>
+                    <td class="type">{{ .Type }}</td>
+                    <td class="status">
+                        {{ if .Draft }}
+                        <span class="status-badge draft">草稿</span>
+                        {{ else }}
+                        <span class="status-badge published">已发布</span>
+                        {{ end }}
+                    </td>
+                    <td class="actions">
+                        <a href="{{ .Permalink }}" class="action-btn view" target="_blank">查看</a>
+                        <a href="#" class="action-btn toggle-visibility" data-id="{{ .File.Path }}">
+                            {{ if .Draft }}发布{{ else }}隐藏{{ end }}
+                        </a>
+                        <a href="#" class="action-btn edit" data-id="{{ .File.Path }}">编辑</a>
+                    </td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="{{ "js/admin.js" | relURL }}"></script>
+{{ end }} 

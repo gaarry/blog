@@ -1,0 +1,13 @@
+# 添加到现有配置中
+menu:
+  main:
+    - name: Admin
+      url: /admin/
+      weight: 100
+      
+# 创建管理员部分
+outputs:
+  section:
+    - HTML
+    - RSS
+    - JSON 
