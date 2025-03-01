@@ -1,0 +1,40 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+
+{{ .Content }}
+
+<div class="photo-grid">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="photo-item">
+        {{ $image := .Resources.GetMatch "featured.jpg" }}
+        {{ if $image }}
+            {{ $thumbnail := $image.Resize "500x" }}
+            <img src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
+        <div class="photo-info">
+            <h3 class="photo-title">{{ .Title }}</h3>
+            {{ if .Params.location }}
+            <div class="photo-location">{{ .Params.location }}</div>
+            {{ else if .Date }}
+            <div class="photo-location">{{ .Date.Format "January 2006" }}</div>
+            {{ end }}
+        </div>
+    </a>
+    {{ end }}
+    
+    <!-- 显示带有featured_image的帖子 -->
+    {{ range (where (where .Site.RegularPages "Section" "posts") "Params.featured_image" "!=" nil) }}
+    <a href="{{ .Permalink }}" class="photo-item">
+        <img src="{{ .Params.featured_image }}" alt="{{ .Title }}">
+        <div class="photo-info">
+            <h3 class="photo-title">{{ .Title }}</h3>
+            {{ if .Params.location }}
+            <div class="photo-location">{{ .Params.location }}</div>
+            {{ else if .Date }}
+            <div class="photo-location">{{ .Date.Format "January 2006" }}</div>
+            {{ end }}
+        </div>
+    </a>
+    {{ end }}
+</div>
+{{ end }} 

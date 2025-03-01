@@ -1,0 +1,30 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+
+{{ .Content }}
+
+<div class="archive-stats">
+    {{ $postCount := len (where .Site.RegularPages "Section" "posts") }}
+    {{ $wordCount := 0 }}
+    {{ range (where .Site.RegularPages "Section" "posts") }}
+        {{ $wordCount = add $wordCount .WordCount }}
+    {{ end }}
+    <p>{{ $postCount }} posts ({{ $wordCount }} words) have been published on {{ .Site.Title }}.</p>
+</div>
+
+<div class="archive-list">
+    {{ range (where .Site.RegularPages "Section" "posts").GroupByDate "2006" }}
+    <div class="archive-year">
+        <h2>{{ .Key }}</h2>
+        {{ range .Pages }}
+        <div class="archive-item">
+            <div class="archive-date">{{ .Date.Format "January 2" }}</div>
+            <h3 class="archive-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h3>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }} 

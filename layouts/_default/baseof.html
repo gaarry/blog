@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        {{ partial "header.html" . }}
+        
+        <main>
+            {{ block "main" . }}{{ end }}
+        </main>
+    </div>
+    
+    {{ with resources.Get "js/menu.js" }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{ end }}
+</body>
+</html> 

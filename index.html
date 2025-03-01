@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Li - Personal Blog</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #4a9eff;
+            --secondary-color: #888888;
+            --header-color: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .site-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .menu-button {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--bg-color);
+            transition: right 0.3s ease;
+            z-index: 1;
+            padding: 80px 20px 20px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-menu.active {
+            right: 0;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 20px;
+        }
+        
+        .nav-menu a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--link-color);
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            margin: 40px 0 30px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        
+        .post {
+            margin-bottom: 60px;
+        }
+        
+        .post-date {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .post-title {
+            font-size: 2rem;
+            margin: 0 0 15px 0;
+            color: var(--header-color);
+        }
+        
+        .post-title a {
+            color: var(--header-color);
+            text-decoration: none;
+        }
+        
+        .post-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .post-content {
+            margin-bottom: 20px;
+        }
+        
+        .post-content a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .continue-reading {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        
+        .continue-reading:hover {
+            text-decoration: underline;
+        }
+        
+        .tags {
+            margin-top: 15px;
+        }
+        
+        .tag {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .tag:hover {
+            text-decoration: underline;
+        }
+        
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .photo-item {
+            overflow: hidden;
+            height: 0;
+            padding-bottom: 66.67%; /* 3:2 aspect ratio */
+            position: relative;
+        }
+        
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Archive */
+        .archive-list {
+            margin-top: 20px;
+        }
+        
+        .archive-item {
+            margin-bottom: 15px;
+        }
+        
+        .archive-date {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .archive-title {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        
+        .archive-title a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .archive-title a:hover {
+            text-decoration: underline;
+        }
+        
+        /* About & Contact */
+        .about-content, .contact-content {
+            margin-top: 30px;
+        }
+        
+        .about-content p, .contact-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* Hide pages by default */
+        #home-page, #photos-page, #about-page, #contact-page, #archive-page {
+            display: none;
+        }
+        
+        /* Show active page */
+        .active-page {
+            display: block !important;
+        }
+        
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 0;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <header>
+            <a href="/" class="site-title">gary-yao.com</a>
+            <button class="menu-button">≡</button>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#" data-page="home-page">Home</a></li>
+                    <li><a href="#" data-page="photos-page">Photos</a></li>
+                    <li><a href="#" data-page="about-page">About</a></li>
+                    <li><a href="#" data-page="contact-page">Contact</a></li>
+                    <li><a href="#" data-page="archive-page">Archive</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <!-- Home Page -->
+            <section id="home-page" class="active-page">
+                <article class="post">
+                    <div class="post-date">February 14, 2023</div>
+                    <h2 class="post-title">
+                        <a href="#" class="post-link" data-post="hosting-static-sites">Hosting Static Sites on Fly.io</a>
+                    </h2>
+                    <div class="post-content">
+                        <p>I recently joined the team at <a href="https://fly.io">Fly.io</a>, and have slowly been moving my various sites and hobby projects over. In case you haven't heard of Fly.io, we help developers host apps (all sorts of apps, not only JavaScript-based ones) close to users – no devops skills required. I use Fly.io to host a few Python apps like <a href="#">this one</a> and <a href="#">this one</a>.</p>
+                    </div>
+                    <a href="#" class="continue-reading post-link" data-post="hosting-static-sites">Continue Reading →</a>
+                    <div class="tags">
+                        <a href="#" class="tag">#cloudflare</a>
+                        <a href="#" class="tag">#fly.io</a>
+                    </div>
+                </article>
+                
+                <article class="post">
+                    <div class="post-date">November 8, 2022</div>
+                    <h2 class="post-title">
+                        <a href="#" class="post-link" data-post="the-moon">The Moon</a>
+                    </h2>
+                    <div class="post-content">
+                        <p>There was a "blood moon" eclipse tonight. I've never tried photographing the moon before – mostly because I didn't own a telephoto lens until recently. The photo below was captured at 840mm (1260mm FF-equivalent). It's crazy to think this giant rock is just chilling up there.</p>
+                    </div>
+                    <a href="#" class="continue-reading post-link" data-post="the-moon">Continue Reading →</a>
+                </article>
+            </section>
+            
+            <!-- Photos Page -->
+            <section id="photos-page">
+                <h1 class="page-title">Photos</h1>
+                <div class="post-content">
+                    <p>Whenever I'm not working, I enjoy going out and taking photos. Here's a collection of my favorite shots from around the world. If you happen to be in Beijing and want to meet up for coffee and a photographic adventure around the city, <a href="#" data-page="contact-page">send me an email</a> or <a href="https://x.com/garynoww" target="_blank">reach out on Twitter</a>.</p>
+                </div>
+                
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,beach" alt="Beach in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,autumn" alt="Autumn in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,city" alt="Japanese city">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,museum" alt="Museum in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?tokyo,skyline" alt="Tokyo skyline">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,shop" alt="Shop in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?tokyo,crossing" alt="Tokyo crossing">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,mountain" alt="Mountain in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?tokyo,food" alt="Food in Tokyo">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,station" alt="Train station in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,store" alt="Store in Japan">
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://source.unsplash.com/random/600x400?japan,night" alt="Night in Japan">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Page -->
+            <section id="about-page">
+                <h1 class="page-title">About</h1>
+                <div class="about-content">
+                    <p>Hi, I'm Brian!</p>
+                    <p>I live in Japan and work at <a href="https://fly.io" target="_blank">Fly.io</a>.</p>
+                    <p>Feel free to connect with me on <a href="https://twitter.com/brianli" target="_blank">Twitter</a> or <a href="#" data-page="contact-page">send me an email</a>.</p>
+                </div>
+            </section>
+            
+            <!-- Contact Page -->
+            <section id="contact-page">
+                <h1 class="page-title">Contact</h1>
+                <div class="contact-content">
+                    <p>Please use the email address below to contact me.</p>
+                    <p><a href="mailto:brian@brianli.com">brian@brianli.com</a></p>
+                    <p>You can also find me on <a href="https://twitter.com/brianli" target="_blank">Twitter</a>.</p>
+                </div>
+            </section>
+            
+            <!-- Archive Page -->
+            <section id="archive-page">
+                <h1 class="page-title">Archive</h1>
+                <p>426 posts (262,685 words) have been published on BrianLi.com.</p>
+                
+                <div class="archive-list">
+                    <div class="archive-item">
+                        <div class="archive-date">February 14, 2023</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="hosting-static-sites">Hosting Static Sites on Fly.io</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">November 8, 2022</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="the-moon">The Moon</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">October 26, 2022</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="shonan-sunset">Shonan Sunset</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">August 27, 2022</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="enoshima-sunset">Enoshima Sunset</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">July 30, 2022</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="python-github-commits">How to Use Python to Get the Number of Commits to a GitHub Repository</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">July 21, 2022</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="cloudflare-pages">Switching Back to Cloudflare Pages</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">July 16, 2022</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="leica-m10">Leica M10 Monochrom</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">June 10, 2021</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="broken-links">How to Find Broken Links With Python</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">February 5, 2021</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="python-automation">Python Automation is Awesome!</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">January 30, 2021</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="quick-update">A Quick Update</a>
+                        </h3>
+                    </div>
+                    
+                    <div class="archive-item">
+                        <div class="archive-date">January 1, 2021</div>
+                        <h3 class="archive-title">
+                            <a href="#" class="post-link" data-post="happy-new-year">Happy New Year!</a>
+                        </h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Menu toggle
+        const menuButton = document.querySelector('.menu-button');
+        const navMenu = document.querySelector('.nav-menu');
+        const overlay = document.querySelector('.overlay');
+        
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+        
+        overlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        const pages = document.querySelectorAll('section[id$="-page"]');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const targetPageId = link.getAttribute('data-page');
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active-page');
+                });
+                
+                // Show target page
+                document.getElementById(targetPageId).classList.add('active-page');
+                
+                // Close menu
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Handle in-page navigation
+        document.querySelectorAll('[data-page]').forEach(link => {
+            if (!link.classList.contains('nav-menu a')) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const targetPageId = link.getAttribute('data-page');
+                    
+                    // Hide all pages
+                    pages.forEach(page => {
+                        page.classList.remove('active-page');
+                    });
+                    
+                    // Show target page
+                    document.getElementById(targetPageId).classList.add('active-page');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            }
+        });
+        
+        // Post links (placeholder for actual post functionality)
+        document.querySelectorAll('.post-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('This would open the full post: ' + link.getAttribute('data-post'));
+            });
+        });
+    </script>
+</body>
+</html> 

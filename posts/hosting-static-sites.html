@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting Static Sites on Fly.io - Brian Li</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <div class="container">
+        <header>
+            <a href="/" class="site-title">brianli.com</a>
+            <button class="menu-button">≡</button>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/photos">Photos</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/archive">Archive</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <article class="post-detail">
+                <header class="post-header">
+                    <div class="post-date">February 14, 2023</div>
+                    <h1 class="post-title">Hosting Static Sites on Fly.io</h1>
+                    <div class="post-meta">
+                        <span class="tags">
+                            <a href="#" class="tag">#cloudflare</a>
+                            <a href="#" class="tag">#fly.io</a>
+                        </span>
+                    </div>
+                </header>
+                
+                <div class="post-body">
+                    <p>I recently joined the team at <a href="https://fly.io" target="_blank">Fly.io</a>, and have slowly been moving my various sites and hobby projects over. In case you haven't heard of Fly.io, we help developers host apps (all sorts of apps, not only JavaScript-based ones) close to users – no devops skills required. I use Fly.io to host a few Python apps like <a href="#">this one</a> and <a href="#">this one</a>.</p>
+                    
+                    <p>While Fly.io is primarily designed for hosting applications, it's also a great place to host static sites. In this post, I'll show you how to deploy a static site to Fly.io in just a few minutes.</p>
+                    
+                    <h2>Getting Started</h2>
+                    
+                    <p>First, you'll need to install the Fly CLI. If you're on macOS and have Homebrew installed, you can run:</p>
+                    
+                    <pre><code>brew install flyctl</code></pre>
+                    
+                    <p>For other platforms, check out the <a href="https://fly.io/docs/hands-on/install-flyctl/" target="_blank">installation instructions</a>.</p>
+                    
+                    <p>Once you have the CLI installed, you'll need to sign up for a Fly.io account:</p>
+                    
+                    <pre><code>fly auth signup</code></pre>
+                    
+                    <p>Or if you already have an account, log in:</p>
+                    
+                    <pre><code>fly auth login</code></pre>
+                    
+                    <h2>Deploying a Static Site</h2>
+                    
+                    <p>Now, let's create a new directory for our static site and add a simple index.html file:</p>
+                    
+                    <pre><code>mkdir my-static-site
+cd my-static-site
+echo '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello, Fly.io!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;' > index.html</code></pre>
+                    
+                    <p>Next, we'll create a Dockerfile to serve our static files:</p>
+                    
+                    <pre><code>FROM nginx:alpine
+COPY . /usr/share/nginx/html</code></pre>
+                    
+                    <p>Now, let's initialize our Fly.io app:</p>
+                    
+                    <pre><code>fly launch</code></pre>
+                    
+                    <p>Follow the prompts to configure your app. When asked if you want to deploy now, say yes.</p>
+                    
+                    <p>That's it! Your static site is now deployed on Fly.io. You can visit it at https://your-app-name.fly.dev.</p>
+                    
+                    <h2>Custom Domains</h2>
+                    
+                    <p>If you want to use a custom domain for your static site, you can do that too:</p>
+                    
+                    <pre><code>fly certs create your-domain.com</code></pre>
+                    
+                    <p>Then, update your DNS settings to point to your Fly.io app. For more details, check out the <a href="https://fly.io/docs/app-guides/custom-domains-with-fly/" target="_blank">custom domains documentation</a>.</p>
+                    
+                    <h2>Conclusion</h2>
+                    
+                    <p>Fly.io makes it incredibly easy to deploy static sites, and with its global network, your site will be fast for users all around the world. Plus, you get all the benefits of Fly.io's platform, like automatic HTTPS, custom domains, and more.</p>
+                    
+                    <p>If you have any questions or run into any issues, feel free to reach out to me or check out the <a href="https://community.fly.io/" target="_blank">Fly.io community forum</a>.</p>
+                </div>
+                
+                <footer class="post-footer">
+                    <div class="tags">
+                        <a href="#" class="tag">#cloudflare</a>
+                        <a href="#" class="tag">#fly.io</a>
+                    </div>
+                    
+                    <div class="post-nav">
+                        <div class="post-nav-prev">
+                            <span class="post-nav-label">Previous Post</span>
+                            <a href="/posts/the-moon.html" class="post-nav-title">The Moon</a>
+                        </div>
+                    </div>
+                    
+                    <a href="/" class="back-to-home">← Back to Home</a>
+                </footer>
+            </article>
+        </main>
+    </div>
+    
+    <script>
+        // Menu toggle
+        const menuButton = document.querySelector('.menu-button');
+        const navMenu = document.querySelector('.nav-menu');
+        const overlay = document.querySelector('.overlay');
+        
+        menuButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+        
+        overlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html> 

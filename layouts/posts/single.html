@@ -1,0 +1,58 @@
+{{ define "main" }}
+<article class="post-detail">
+    <header class="post-header">
+        <div class="post-date">{{ .Date.Format "January 2, 2006" }}</div>
+        <h1 class="post-title">{{ .Title }}</h1>
+        {{ if .Params.tags }}
+        <div class="post-meta">
+            <span class="tags">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+                {{ end }}
+            </span>
+        </div>
+        {{ end }}
+    </header>
+    
+    {{ if .Params.featured_image }}
+    <div class="featured-image-container">
+        <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="featured-image">
+        {{ if .Params.image_caption }}
+        <div class="image-caption">{{ .Params.image_caption | safeHTML }}</div>
+        {{ end }}
+    </div>
+    {{ end }}
+    
+    <div class="post-body">
+        {{ .Content }}
+    </div>
+    
+    <footer class="post-footer">
+        {{ if .Params.tags }}
+        <div class="tags">
+            {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        <div class="post-nav">
+            {{ with .PrevInSection }}
+            <div class="post-nav-prev">
+                <span class="post-nav-label">Previous Post</span>
+                <a href="{{ .Permalink }}" class="post-nav-title">{{ .Title }}</a>
+            </div>
+            {{ end }}
+            
+            {{ with .NextInSection }}
+            <div class="post-nav-next">
+                <span class="post-nav-label">Next Post</span>
+                <a href="{{ .Permalink }}" class="post-nav-title">{{ .Title }}</a>
+            </div>
+            {{ end }}
+        </div>
+        
+        <a href="{{ .Site.BaseURL }}" class="back-to-home">← Back to Home</a>
+    </footer>
+</article>
+{{ end }} 

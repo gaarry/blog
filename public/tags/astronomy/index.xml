@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Astronomy on Gary Yao</title>
+    <link>http://localhost:1313/tags/astronomy/</link>
+    <description>Recent content in Astronomy on Gary Yao</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/astronomy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blood Moon Eclipse</title>
+      <link>http://localhost:1313/photos/the-moon/</link>
+      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/the-moon/</guid>
+      <description>&lt;p&gt;A &amp;ldquo;blood moon&amp;rdquo; lunar eclipse captured at 840mm (1260mm FF-equivalent).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Moon</title>
+      <link>http://localhost:1313/posts/the-moon/</link>
+      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/the-moon/</guid>
+      <description>&lt;p&gt;There was a &amp;ldquo;blood moon&amp;rdquo; eclipse tonight. I&amp;rsquo;ve never tried photographing the moon before – mostly because I didn&amp;rsquo;t own a telephoto lens until recently. The photo below was captured at 840mm (1260mm FF-equivalent). It&amp;rsquo;s crazy to think this giant rock is just chilling up there.&lt;/p&gt;&#xA;&lt;p&gt;The lunar eclipse was visible from North America, and I was lucky enough to have clear skies in my area. I set up my camera on a tripod and used a remote shutter release to minimize camera shake.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

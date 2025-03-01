@@ -1,0 +1,44 @@
+{{ define "main" }}
+<article class="photo-detail">
+    <header class="photo-header">
+        <div class="photo-date">{{ .Date.Format "January 2, 2006" }}</div>
+        <h1 class="photo-title">{{ .Title }}</h1>
+        {{ if .Params.tags }}
+        <div class="photo-meta">
+            <span class="tags">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+                {{ end }}
+            </span>
+        </div>
+        {{ end }}
+        
+        {{ if .Params.location }}
+        <div class="photo-location">{{ .Params.location }}</div>
+        {{ end }}
+    </header>
+    
+    <div class="featured-image-container">
+        {{ $image := .Resources.GetMatch "featured.jpg" }}
+        {{ if $image }}
+        <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="featured-image">
+        {{ end }}
+    </div>
+    
+    <div class="photo-body">
+        {{ .Content }}
+    </div>
+    
+    <footer class="photo-footer">
+        {{ if .Params.tags }}
+        <div class="tags">
+            {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        <a href="/photos/" class="back-to-photos">← Back to Photos</a>
+    </footer>
+</article>
+{{ end }} 

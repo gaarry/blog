@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+
+{{ with resources.Get "css/style.css" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ else }}
+  <style>
+    /* 基本样式作为备用 */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  </style>
+{{ end }}
+
+{{ with resources.Get "css/responsive.css" }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ end }} 

@@ -1,0 +1,42 @@
+/* Responsive styles */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .post-title {
+        font-size: 1.8rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .post-nav {
+        flex-direction: column;
+    }
+    
+    .post-nav-prev, .post-nav-next {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        margin: 30px 0 20px;
+    }
+    
+    .post-title {
+        font-size: 1.5rem;
+    }
+    
+    .nav-menu {
+        width: 220px;
+    }
+} 
