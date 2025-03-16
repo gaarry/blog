@@ -1,7 +1,7 @@
 baseURL = "https://gary-yao.com/"
 languageCode = "en-us"
-title = "Gary Yao"
+title = "gary"
 
 [params]
-  description = "Personal blog of Gary Yao"
+  description = "Personal blog of gary"
   mainSections = ["posts"] 

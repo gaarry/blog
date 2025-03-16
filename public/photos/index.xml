@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Photos on Gary Yao</title>
+    <title>Photos on gary</title>
     <link>http://localhost:1313/photos/</link>
-    <description>Recent content in Photos on Gary Yao</description>
+    <description>Recent content in Photos on gary</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
@@ -28,6 +28,13 @@
       <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/photos/sayram-lake/</guid>
       <description>&lt;p&gt;The crystal-clear waters of Sayram Lake reflect the azure sky, creating a seamless blend of blues that stretches to the distant mountains. This alpine lake, situated at 2,073 meters above sea level, is the largest and highest alpine lake in Xinjiang, known for its remarkable color that changes throughout the day.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shonan Sunset</title>
+      <link>http://localhost:1313/photos/shonan-sunset/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/shonan-sunset/</guid>
+      <description>&lt;p&gt;Mt. Fuji at sunset, viewed from Shonan coast. The combination of Mt. Fuji&amp;rsquo;s silhouette against the vibrant orange and red sky creates a truly breathtaking scene.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

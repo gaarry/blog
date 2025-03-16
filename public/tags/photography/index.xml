@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Photography on Gary Yao</title>
+    <title>Photography on gary</title>
     <link>http://localhost:1313/tags/photography/</link>
-    <description>Recent content in Photography on Gary Yao</description>
+    <description>Recent content in Photography on gary</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
@@ -49,6 +49,13 @@
       <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/sayram-lake/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s a Kazakh legend that tells of a young couple, Sayram and Salimu, whose tears of joy formed a vast lake after they were finally united following years of separation. Standing on the shores of Sayram Lake, surrounded by an almost supernatural blue that seems to pulse with its own inner light, it&amp;rsquo;s easy to understand why such poetic myths would arise around this extraordinary body of water.&lt;/p&gt;&#xA;&lt;p&gt;During my exploration of Xinjiang in late April 2024, I dedicated a full day to experiencing this alpine gem, known locally as the &amp;ldquo;Last Teardrop of the Atlantic&amp;rdquo; due to the moisture-bearing air currents that travel thousands of kilometers from the Atlantic Ocean to finally release precipitation here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shonan Sunset</title>
+      <link>http://localhost:1313/photos/shonan-sunset/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/photos/shonan-sunset/</guid>
+      <description>&lt;p&gt;Mt. Fuji at sunset, viewed from Shonan coast. The combination of Mt. Fuji&amp;rsquo;s silhouette against the vibrant orange and red sky creates a truly breathtaking scene.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

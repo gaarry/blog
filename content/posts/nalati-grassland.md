@@ -2,7 +2,7 @@
 title: "Spring in Nalati: Life on the Ancient Grasslands"
 date: 2024-04-30
 tags: ["photography", "travel", "nature", "animals", "xinjiang"]
-featured_image: "./images/yili-nalati.jpg"
+featured_image: "https://img-bucket.gary-yao.com/yili-nalati.jpg"
 image_caption: "Mother sheep and lamb on Nalati Grassland, Ili, Xinjiang"
 ---
 

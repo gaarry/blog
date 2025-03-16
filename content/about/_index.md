@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-Hi, I'm Gary Yao!
+Hi, I'm Gary!
 
-I live in Japan and work at [Fly.io](https://fly.io).
-
-Feel free to connect with me on [Twitter](https://twitter.com) or send me an email. 
+Feel free to connect with me on [Twitter](https://x.com/garynoww) or send me an email. 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Gary Yao</title>
+    <title>Tags on gary</title>
     <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on Gary Yao</description>
+    <description>Recent content in Tags on gary</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate>
@@ -72,38 +72,10 @@
       <description></description>
     </item>
     <item>
-      <title>Cloudflare</title>
-      <link>http://localhost:1313/tags/cloudflare/</link>
-      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cloudflare/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Fly.io</title>
-      <link>http://localhost:1313/tags/fly.io/</link>
-      <pubDate>Tue, 14 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/fly.io/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Cityscape</title>
-      <link>http://localhost:1313/tags/cityscape/</link>
-      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/cityscape/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Japan</title>
       <link>http://localhost:1313/tags/japan/</link>
-      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/japan/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Astronomy</title>
-      <link>http://localhost:1313/tags/astronomy/</link>
-      <pubDate>Tue, 08 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/astronomy/</guid>
       <description></description>
     </item>
   </channel>

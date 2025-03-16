@@ -2,7 +2,7 @@
 title: "The Sapphire of the Tianshan: Sayram Lake"
 date: 2024-04-29
 tags: ["photography", "travel", "landscape", "lake", "xinjiang"]
-featured_image: "./images/sayram-lake.jpg"
+featured_image: "https://img-bucket.gary-yao.com/sayram-lake.jpg"
 image_caption: "The serene blue waters of Sayram Lake with melting snow patches along the shore"
 ---
 

@@ -2,7 +2,7 @@
 title: "Where Heaven Meets Earth: The Tianshan Range"
 date: 2024-04-30
 tags: ["photography", "travel", "landscape", "mountains", "xinjiang"]
-featured_image: "./images/yili-mount.jpg"
+featured_image: "https://img-bucket.gary-yao.com/yili-mount.jpg"
 image_caption: "Snow-capped Tianshan Mountains overlooking spring grasslands in Xinyuan County, Ili"
 ---
 
